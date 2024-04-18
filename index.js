@@ -14,7 +14,9 @@ app.get('/generate-image', async (req, res) => {
         const imageBuffer = await generateImageFromTemplate(htmlTemplatePath);
         res.writeHead(200, {
             'Content-Type': 'image/png',
-            'Content-Length': imageBuffer.length
+            'Content-Length': imageBuffer.length,
+            'Cache-Control': 'no-store', // Prevent caching
+            'Pragma': 'no-cache' // Compatibility with older clients
         });
         res.end(imageBuffer);
     } catch (error) {
