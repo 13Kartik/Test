@@ -9,7 +9,7 @@
                     color: #58585a;
                     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
                 }
-                
+
                 body{
                     display: flex;
                     justify-content: center;
@@ -91,8 +91,22 @@
             </div>
 
             <div class="text-center" style="margin: 1%;">
-                *Availability may change.Appointments avaibable as of 01:29 on 04/09/2024. 
+                *Availability may change.Appointments avaibable as of <p id="timestamp" style="display: inline-block"></p>. 
             </div>
         </div>
+
+        <script>
+            // Get the current timestamp in milliseconds
+            var currentTimestamp = Date.now();
+    
+            // Convert the timestamp to a human-readable date and time format
+            var currentDate = new Date(currentTimestamp);
+    
+            // Format the date and time as a string
+            var formattedDate = currentDate.toLocaleString();
+    
+            // Display the formatted date and time in the HTML element with id="timestamp"
+            document.getElementById("timestamp").innerHTML = formattedDate;
+        </script>
     </body>
 </html>
